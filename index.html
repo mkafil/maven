@@ -67,6 +67,8 @@
     /* Ensures only modal title is affected */
     font-size: 1.5rem;
     font-weight: bold;
+     text-align: center; /* Centers the text */
+  width: 100%; /* Ensures full width for proper alignment */
   }
 
   .modal-header {
@@ -84,18 +86,25 @@
   .modal-footer {
     justify-content: center;
   }
+
+  .modal-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensures the modal is vertically centered */
+}
 </style>
 
 <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle">How Much Does Business Setup In Dubai Cost?</h5>
+        <h5 class="modal-title" id="modalTitle">Business Setup Cost in Dubai?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <p>That What is your business activity? Free Zone or mainland? How many visas or shareholders? From experience with in
-        business setup Dubai for over 80,000 entreperneurs, we have created the Business Cost Calculator to give the answer.</p>
+        business setup Dubai for over 80,000 entrepreneurs, we have created the Business Cost Calculator to give the answer.</p>
       </div>
       <div class="modal-footer">
         <div data-fillout-id="pzBsaHCZwmus" data-fillout-embed-type="slider" data-fillout-button-text="Calculate Now"
@@ -115,7 +124,7 @@
   $(document).ready(function () {
     setTimeout(function () {
       $('#myModal').modal('show');
-    }, 1000); // Delay of 1 second for smooth experience
+    }, 5000); // Delay of 1 second for smooth experience
   });
 </script>
   
@@ -124,7 +133,7 @@
 
       <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <img src="assets/img/maven_logo_clear_bg.png" alt="maven logo">
+        <img src="assets/img/maven_logo_clear_bg.png" alt="maven logo"> 
       </a>
 
       <nav id="navmenu" class="navmenu">
@@ -209,7 +218,8 @@
             <h2>Create Your Success Story<span>.</span></h2>
             <p class="icon-text">
               Your Business
-              <i class="fas fa-handshake"></i>
+              <!-- <i class="fa fa-address-book-o"></i> -->
+              <i class="fa fa-handshake-o" aria-hidden="true"  style="color:#ffc451;" ></i>
               Our Dedication
             </p>
           </div>
@@ -229,7 +239,7 @@
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
             <div class="icon-box">
               <i class="bi bi-binoculars"></i>
-              <h3>Offshore Company Formation</h3>
+              <h3>FreeZone Company Formation</h3>
             </div>
           </div>
           <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="500">
@@ -619,10 +629,10 @@
 
           <div class="col-lg-6">
 
-            <h3 class="fw-bold fs-2 mb-3">Secure and grow your wealth</h3>
+            <h3 class="fw-bold fs-2 mb-3">Unlock Opportunities with Seamless Business Services</h3>
             <p>
-            Unlock exclusive wealth structuring and management strategies with Arnifi Funds. Benefit from our expertise in global
-            jurisdictions and ensure your assets are protected, managed, and ready for growth.
+          From PRO services to bank account setup and golden visa assistance, Maven& takes care of the paperwork so you can focus
+          on growing your business. Let us simplify the process and ensure a hassle-free experience.
             </p>
 
             <div class="row gy-4">
@@ -684,9 +694,21 @@
 
 
       <!-- Calendly inline widget begin -->
-      <div class="calendly-inline-widget" data-url="https://calendly.com/mavenandsocial2024"
-        style="min-width:320px;height:700px;"></div>
-      <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+     <!-- Cal inline embed code begins -->
+    <div style="width:100%;height:100%;overflow:scroll" id="my-cal-inline"></div>
+    <script type="text/javascript">
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+      Cal("init", "30min", { origin: "https://cal.com" });
+
+      Cal.ns["30min"]("inline", {
+        elementOrSelector: "#my-cal-inline",
+        config: { "layout": "month_view", "theme": "light" },
+        calLink: "maven-and/30min",
+      });
+
+      Cal.ns["30min"]("ui", { "theme": "light", "cssVarsPerTheme": { "light": { "cal-brand": "#ffd700" }, "dark": { "cal-brand": "#abbadd" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+    </script>
+    <!-- Cal inline embed code ends -->
 
       <!-- Calendly inline widget end -->
 
@@ -826,18 +848,18 @@
             
               <div class="row mt-4">
                 <!-- Second Row -->
-                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="500">
                   <img src="assets/img/bank/bank (5).png" alt="Service 5" class="img-fluid service-img">
                 </div>
-                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="600">
                   <img src="assets/img/bank/bank (6).png" alt="Service 6" class="img-fluid service-img">
                 </div>
-                <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="700">
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="700">
                   <img src="assets/img/bank/bank (7).png" alt="Service 7" class="img-fluid service-img">
                 </div>
-                <!-- <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="800">
-                  <img src="assets/img/service8.jpg" alt="Service 8" class="img-fluid service-img">
-                </div> -->
+                <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="800">
+                  <img src="assets/img/bank/bank (8).png" alt="Service 8" class="img-fluid service-img">
+                </div>
               </div>
             </div>
         
@@ -855,34 +877,34 @@
           <div class="container">
             <div class="row">
               <!-- First Row -->
-              <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="100">
                 <img src="assets/img/partners/Partner1.png" alt="Service 1" class="img-fluid service-img">
               </div>
-              <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="200">
                 <img src="assets/img/partners/Partner2.png" alt="Service 2" class="img-fluid service-img">
               </div>
-              <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="300">
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="300">
                 <img src="assets/img/partners/Partner3.png" alt="Service 3" class="img-fluid service-img">
               </div>
-              <!-- <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
-                <img src="assets/img/bank/bank (4).png" alt="Service 4" class="img-fluid service-img">
-              </div> -->
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="400">
+                <img src="assets/img/partners/partner8.png" alt="Service 4" class="img-fluid service-img">
+              </div>
             </div>
         
             <div class="row mt-4">
               <!-- Second Row -->
-              <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="500">
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="500">
                 <img src="assets/img/partners/Partner4.png" alt="Service 5" class="img-fluid service-img">
               </div>
-              <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="600">
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="600">
                 <img src="assets/img/partners/Partner5.png" alt="Service 6" class="img-fluid service-img">
               </div>
-              <div class="col-md-4 col-6" data-aos="fade-up" data-aos-delay="700">
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="700">
                 <img src="assets/img/partners/Partner6.png" alt="Service 7" class="img-fluid service-img">
               </div>
-              <!-- <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="800">
-                          <img src="assets/img/service8.jpg" alt="Service 8" class="img-fluid service-img">
-                        </div> -->
+              <div class="col-md-3 col-6" data-aos="fade-up" data-aos-delay="800">
+                          <img src="assets/img/partners/partner7.png" alt="Service 8" class="img-fluid service-img">
+                        </div>
             </div>
           </div>
         
@@ -902,7 +924,7 @@
 
         <div class="row gy-4">
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="team-member">
               <div class="member-img">
                 <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
@@ -910,7 +932,7 @@
                   <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
                   <!-- <a href=""><i class="bi bi-facebook"></i></a> -->
                   <!-- <a href=""><i class="bi bi-instagram"></i></a> -->
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/abhay-champanerkar-62835848/"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -920,7 +942,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
             <div class="team-member">
               <div class="member-img">
                 <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
@@ -928,7 +950,7 @@
                   <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
                   <!-- <a href=""><i class="bi bi-facebook"></i></a> -->
                   <!-- <a href=""><i class="bi bi-instagram"></i></a> -->
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/rimsha-kamran-4aa300275/"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
               <div class="member-info">
@@ -938,10 +960,28 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
             <div class="team-member">
               <div class="member-img">
                 <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
+                  <!-- <a href=""><i class="bi bi-facebook"></i></a> -->
+                  <!-- <a href=""><i class="bi bi-instagram"></i></a> -->
+                  <a href="https://www.linkedin.com/in/mohamed-faizal-b2086b185/"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Mohamed Faizal</h4>
+                <span>Marketing Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-img">
+                <img src="assets/img/team/team-4.png" class="img-fluid" alt="">
                 <div class="social">
                   <!-- <a href=""><i class="bi bi-twitter-x"></i></a> -->
                   <!-- <a href=""><i class="bi bi-facebook"></i></a> -->
@@ -950,8 +990,8 @@
                 </div>
               </div>
               <div class="member-info">
-                <h4>Mohamed Faizal</h4>
-                <span>Marketing Manager</span>
+                <h4>Dinesh Kumar</h4>
+                <span>Director Business Development</span>
               </div>
             </div>
           </div>
@@ -1079,9 +1119,9 @@
               <p><strong>Email:</strong> <span>info@mavenand.ae</span></p>
             </div>
             <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
+              <a href="https://x.com/mavenand_ae"><i class="bi bi-twitter-x"></i></a>
               <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
+              <a href="https://www.instagram.com/mavenand.ae?igsh=cGlyeWJlb3p5d3lv&utm_source=qr"><i class="bi bi-instagram"></i></a>
               <a href=""><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
