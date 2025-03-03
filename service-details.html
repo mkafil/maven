@@ -36,7 +36,149 @@
   ======================================================== -->
 </head>
 
+<style>
+  /* Pop-up Overlay */
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-box {
+  width: 600px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #f00;
+}
+
+.popup-box h2 {
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.popup-buttons button {
+  width: 30%;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.whatsapp-btn {
+  background: #198754;
+}
+
+.call-btn {
+  background: #a10000;
+}
+
+.email-btn {
+  background: #000;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select {
+  width: 48%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.submit-btn {
+  background: #198754;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.open-popup-btn {
+  padding: 10px 20px;
+  background: #198754;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+</style>
+
 <body class="service-details-page">
+
+  <div class="popup-overlay" id="popupForm">
+    <div class="popup-box">
+      <span class="close-btn" onclick="closePopup()">&times;</span>
+      <h2>Get a Free Quote</h2>
+      <div class="popup-buttons">
+        <button class="whatsapp-btn">📱 Whatsapp</button>
+        <button class="call-btn">📞 Call Us</button>
+        <button class="email-btn">✉️ Email</button>
+      </div>
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Your Name *" required>
+          <input type="email" placeholder="Your Email *" required>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Your Mobile *" required>
+          <input type="text" placeholder="Your Address Location *" required>
+        </div>
+        <div class="form-group">
+          <select required>
+            <option value="" disabled selected>Services *</option>
+            <option>Legal Translation</option>
+            <option>Attestation</option>
+            <option>Embassy / Consulate Attestation</option>
+            <option>MOFA</option>
+            <option>Home Country Attestation</option>
+            <option>Power of Attorney</option>
+            <option>WILL Registration</option>
+            <option>Solicitor Notarization</option>
+            <option>New Paper Advertising</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Submit</button>
+      </form>
+    </div>
+  </div>
 
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -174,6 +316,7 @@
               <h4>Have a Question?</h4>
               <p class="d-flex align-items-center mt-2 mb-0"><i class="bi bi-telephone me-2"></i> <span>+1 5589 55488 55</span></p>
               <p class="d-flex align-items-center mt-1 mb-0"><i class="bi bi-envelope me-2"></i> <a href="mailto:contact@example.com">contact@example.com</a></p>
+              <button onclick="openPopup()" class="open-popup-btn">Get a Free Quote</button>
             </div>
 
           </div>
@@ -281,6 +424,23 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <script>
+    function openPopup() {
+        document.getElementById("popupForm").style.display = "flex";
+      }
+
+      function closePopup() {
+        document.getElementById("popupForm").style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        const popup = document.getElementById("popupForm");
+        if (event.target == popup) {
+          popup.style.display = "none";
+        }
+      };
+  </script>
 
 </body>
 

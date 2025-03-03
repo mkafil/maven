@@ -22,43 +22,66 @@
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
 
-  /**
-   * Mobile nav toggle
-   */
-  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+document.addEventListener("DOMContentLoaded", function () {
+  fetch("header.html")
+    .then((response) => response.text())
+    .then((data) => {
+      document.getElementById("header-placeholder").innerHTML = data;
 
-  function mobileNavToogle() {
-    document.querySelector('body').classList.toggle('mobile-nav-active');
-    mobileNavToggleBtn.classList.toggle('bi-list');
-    mobileNavToggleBtn.classList.toggle('bi-x');
-  }
-  if (mobileNavToggleBtn) {
-    mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
-  }
+      const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+      const body = document.querySelector("body");
 
-  /**
-   * Hide mobile nav on same-page/hash links
-   */
-  document.querySelectorAll('#navmenu a').forEach(navmenu => {
-    navmenu.addEventListener('click', () => {
-      if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+      if (mobileNavToggle) {
+        mobileNavToggle.addEventListener("click", function () {
+          body.classList.toggle("mobile-nav-active");
+          this.classList.toggle("bi-x");
+          this.classList.toggle("bi-list");
+        });
       }
-    });
 
-  });
+      // Dropdown Toggle (First Level)
+      document
+        .querySelectorAll(".navmenu .dropdown > a")
+        .forEach((dropdown) => {
+          dropdown.addEventListener("click", function (e) {
+            if (window.innerWidth <= 1199) {
+              e.preventDefault();
+              dropdown.parentElement.classList.toggle("dropdown-active");
+              dropdown.nextElementSibling.classList.toggle("dropdown-active");
+              e.stopImmediatePropagation(); // ✅ Prevents closing parent dropdown
+            }
+          });
+        });
 
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
-  });
+      // Deep Dropdown (Second Level)
+      document
+        .querySelectorAll(".navmenu .dropdown .dropdown > a")
+        .forEach((deepDropdown) => {
+          deepDropdown.addEventListener("click", function (e) {
+            if (window.innerWidth <= 1199) {
+              e.preventDefault();
+              deepDropdown.parentElement.classList.toggle("dropdown-active");
+              deepDropdown.nextElementSibling.classList.toggle(
+                "dropdown-active"
+              );
+              e.stopImmediatePropagation(); // ✅ This is the magic line 🔥
+            }
+          });
+        });
+
+      // Hide Mobile Nav on Same Page Links
+      document.querySelectorAll("#navmenu a").forEach((navmenuLink) => {
+        navmenuLink.addEventListener("click", function () {
+          if (body.classList.contains("mobile-nav-active")) {
+            body.classList.remove("mobile-nav-active");
+            mobileNavToggle.classList.toggle("bi-x");
+            mobileNavToggle.classList.toggle("bi-list");
+          }
+        });
+      });
+    })
+    .catch((error) => console.error("Error loading header:", error));
+});
 
   /**
    * Preloader
