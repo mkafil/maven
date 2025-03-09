@@ -151,35 +151,35 @@
         <button class="call-btn">📞 Call Us</button>
         <button class="email-btn">✉️ Email</button>
       </div>
-      <form>
-        <div class="form-group">
-          <input type="text" placeholder="Your Name *" required>
-          <input type="email" placeholder="Your Email *" required>
-        </div>
-        <div class="form-group">
-          <input type="text" placeholder="Your Mobile *" required>
-          <input type="text" placeholder="Your Address Location *" required>
-        </div>
-        <div class="form-group">
-          <select required>
-            <option value="" disabled selected>Services *</option>
-            <option>Legal Translation</option>
-            <option>Attestation</option>
-            <option>Embassy / Consulate Attestation</option>
-            <option>MOFA</option>
-            <option>Home Country Attestation</option>
-            <option>Power of Attorney</option>
-            <option>WILL Registration</option>
-            <option>Solicitor Notarization</option>
-            <option>New Paper Advertising</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <button type="submit" class="submit-btn">Submit</button>
-      </form>
+    <form id="contactForm">
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Your Name *" required>
+        <input type="email" name="email" placeholder="Your Email *" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="mobile" placeholder="Your Mobile *" required>
+        <input type="text" name="address" placeholder="Your Address Location *" required>
+      </div>
+      <div class="form-group">
+        <select name="service" required>
+          <option value="" disabled selected>Services *</option>
+          <option>Legal Translation</option>
+          <option>Attestation</option>
+          <option>Embassy / Consulate Attestation</option>
+          <option>MOFA</option>
+          <option>Home Country Attestation</option>
+          <option>Power of Attorney</option>
+          <option>WILL Registration</option>
+          <option>Solicitor Notarization</option>
+          <option>New Paper Advertising</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
     </div>
   </div>
-
+<script src="google-sheet.js"></script>
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
   
